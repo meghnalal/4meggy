@@ -49,21 +49,15 @@ While technical skills are important, Goldman interviewers focus on future leade
 
 Worst outage I caused was when I approved an MR That had removed some testing logic. To give context this was a new feature FE implementation, it was a big MR that I allready reviewed a couple of time after some comments and follow up changes. On my last review I mainly focused on comments review changes without realising some component test were deleted. And when deleting test the pipeline will still pass because there is no failing test , and the code went to prod causing issues on other very important feature of the application.
 
----
-
 ### 🟧 Root Cause (RCA)  
 - Because the MR was big it was easier to miss things 
 - CI passed because the tests were gone, not because the code was safe.
 - No Error boundary protection for production
 
----
-
 ### 🟩 Process Fix  
 - First of all I decided that we should leverage more feature branches if there is a big change coming its easier to review bit by bit
 - Implemented a checklist before and after anything went to production, we do extensive test to the feature itself but its also important to test everything especially with the main feature of application. So organised with the team to decide which features are tier A and they need a flow check no matter if the MR has nothing to do with that
 - Most Important one to me its implementing error boundaries, if part of the component broke down the error propagates to top of the application , by implementing error boundaries that error stays contained at the lower component level without causing full app outages and it also triggered a metric in the BE so we could be notified 
-
----
 
 ### 🟦 Learning Takeaway 
 Time invested in quality of the product its just as important as time invested in the developement, when you have big application its impossible to keep track of everything hence why leveraging error boundaries ci and metrics 
@@ -71,7 +65,23 @@ Time invested in quality of the product its just as important as time invested i
 ---
 
 12. Describe a time you had to fix something critical under pressure.
+### 🟥 Situation
+So the situation was that there was a issue in the ingestion of the dataset that happens in the cloud.And this caused a very critical issue because that data gets used to sign off vehicles and also for testing across the whole company.
 
+### 🟧 Action 
+So the action that I took was immediatly focus on that task and trying track down where the issue is coming from.
+I done that by force triggering ingestion and trying to analyse cloud logs to see if the problem is located in the triggering of the ingestion or the lower level code itself (image).
+By doing that I found that the triggering worked but it wasnt running anything.
+Because of that found out that the ingest image wasnt there anymore, we had coded in terraform to at least keep 5 copies of the ingention image but for some reason it wasnt there anymore.
+
+### 🟩 Process Fix  
+So to fix this i diverted in 2 solution:
+1- Immediate outcome is to push image up so the ingestion back up and running
+2- Long term solution was to find out why the image suddently got deleted and it turns out it was because the rule wasnt applied properly to the release pipeline and therefore why the image got deleted 
+
+### 🟦 Learning Takeaway 
+
+---
 13. Describe a time you improved a DevOps process without being asked.
 
 14. Describe a conflict with a developer. How did you resolve it?

@@ -45,23 +45,30 @@ While technical skills are important, Goldman interviewers focus on future leade
 ## 🤝 Part 2: Behavioral Questions
 
 11. Tell me about the worst outage you’ve ever caused. What happened and what did you learn?
-<p style="color:#e74c3c"><strong>Incident:</strong></p>  
+### 🟥 Incident 
+
 Worst outage I caused was when I approved an MR That had removed some testing logic. To give context this was a new feature FE implementation, it was a big MR that I allready reviewed a couple of time after some comments and follow up changes. On my last review I mainly focused on comments review changes without realising some component test were deleted. And when deleting test the pipeline will still pass because there is no failing test , and the code went to prod causing issues on other very important feature of the application.
 
-<p style="color:#f39c12"><strong>Root Cause (RCA):</strong></p>  
+---
+
+### 🟧 Root Cause (RCA)  
 - Because the MR was big it was easier to miss things 
 - CI passed because the tests were gone, not because the code was safe.
 - No Error boundary protection for production
 
-### 🟥 Incident  
+---
+
+### 🟩 Process Fix  
 - First of all I decided that we should leverage more feature branches if there is a big change coming its easier to review bit by bit
 - Implemented a checklist before and after anything went to production, we do extensive test to the feature itself but its also important to test everything especially with the main feature of application. So organised with the team to decide which features are tier A and they need a flow check no matter if the MR has nothing to do with that
 - Most Important one to me its implementing error boundaries, if part of the component broke down the error propagates to top of the application , by implementing error boundaries that error stays contained at the lower component level without causing full app outages and it also triggered a metric in the BE so we could be notified 
 
 ---
 
-<p style="color:#2980b9"><strong>Learning Takeaway:</strong></p>  
+### 🟦 Learning Takeaway 
 Time invested in quality of the product its just as important as time invested in the developement, when you have big application its impossible to keep track of everything hence why leveraging error boundaries ci and metrics 
+
+---
 
 12. Describe a time you had to fix something critical under pressure.
 

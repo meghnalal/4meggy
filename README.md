@@ -53,10 +53,12 @@ Worst outage I caused was when I approved an MR That had removed some testing lo
 - CI passed because the tests were gone, not because the code was safe.
 - No Error boundary protection for production
 
-<p style="color:#27ae60"><strong>Process Fix:</strong></p>  
+### 🟥 Incident  
 - First of all I decided that we should leverage more feature branches if there is a big change coming its easier to review bit by bit
 - Implemented a checklist before and after anything went to production, we do extensive test to the feature itself but its also important to test everything especially with the main feature of application. So organised with the team to decide which features are tier A and they need a flow check no matter if the MR has nothing to do with that
 - Most Important one to me its implementing error boundaries, if part of the component broke down the error propagates to top of the application , by implementing error boundaries that error stays contained at the lower component level without causing full app outages and it also triggered a metric in the BE so we could be notified 
+
+---
 
 <p style="color:#2980b9"><strong>Learning Takeaway:</strong></p>  
 Time invested in quality of the product its just as important as time invested in the developement, when you have big application its impossible to keep track of everything hence why leveraging error boundaries ci and metrics 

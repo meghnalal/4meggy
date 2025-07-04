@@ -83,10 +83,26 @@ So to fix this i diverted in 2 solution:
 
 ---
 13. Describe a time you improved a DevOps process without being asked.
+### 🟥 Situation
+So we used poetry to install python depency process, I noticed it was slow and the images were heavier.
+### 🟧 Action 
+moved from poetry to uv brought it in as a quality ticket 
 
+### 🟩 Process Fix  
+
+
+### 🟦 Learning Takeaway 
+
+---
 14. Describe a conflict with a developer. How did you resolve it?
 
 15. What’s a recent DevOps tool you learned and why?
+
+16. Why Goldman Sach?
+### 🟥 Honest answer
+To be honest what exites me about are the technical challanges that a finance company faces and the engineering culture.
+You are a company almost built entirely on inhouse software which alongside responsability, also brings room for inhouse innovations, automation and custom products tailored to internal and external customers.
+What exites is the scale of which you have to build the tech behind it as it needs to be secure fast and complaint since we dealing with customer trust and or money
 
 ---
 
@@ -94,7 +110,27 @@ So to fix this i diverted in 2 solution:
 
 16. You discover secrets committed to a public repo. What do you do?
 
+### 🟩 Process Fix  
+- I revoke the key so it gets rotate immediately 
+- Delete history with gilab filter 
+- I normally have pre-commit catch secrets before commiting them
+- Heads up to the team who generated that token since other team may be effected
+
+---
+
 17. Why is DevOps critical to the Marcus platform?
+### 🟦 Learning Takeaway 
+
+1- Well you are a banking platform that deliveres products through app and web because of this DevOps its critical.
+You need rapid and reliable deployments using CI/CD pipelines
+Deliver feature faster with continuos delivery without sacrifising quality (Secure)
+
+2- We would also build cloud native scalable infrastucture to support seamless performance and uptime. (scalable)
+
+3- Automation of deployment, testing, infrastructure provisioning (IaC), and monitoring reduces manual errors, improves consistency, and lowers operational overhead.(high velocity delivery)
+ 
+---
+
 
 18. What DORA metrics do you care about and why?
 

@@ -112,8 +112,8 @@ What exites is the scale of which you have to build the tech behind it as it nee
 
 ### 🟩 Process Fix  
 - I revoke the key so it gets rotate immediately 
-- Delete history with gilab filter 
-- I normally have pre-commit catch secrets before commiting them
+- Delete history with gilab filter or other similar tool
+- I normally have pre-commit catch secrets before commiting them so implement that if not there 
 - Heads up to the team who generated that token since other team may be effected
 
 ---
@@ -128,10 +128,22 @@ Deliver feature faster with continuos delivery without sacrifising quality (Secu
 2- We would also build cloud native scalable infrastucture to support seamless performance and uptime. (scalable)
 
 3- Automation of deployment, testing, infrastructure provisioning (IaC), and monitoring reduces manual errors, improves consistency, and lowers operational overhead.(high velocity delivery)
- 
+
 ---
-
-
 18. What DORA metrics do you care about and why?
 
+### 🟦 Learning Takeaway
+Two main metrics :
+Velocity : 
+- Deployment frequency: how often we deploy and its not about doing a lot of deployments everyday but to just have a consistent releases get delivered to customer.
+- Lead time for changes: how quickly idea goes to production and if they dont what it is holding it back and how can automate that like testing or reviews?
+Stability:
+- Change Failure Rate: How often deployment caused failure in prod - low this means changes dont impact stability of user experience 
+- How long does it take to recover from failure? MTTR is team effective at restoring failures? 
+-
+---
 19. If you were leading the Marcus platform team, what would you focus on in your first 90 days?
+
+### 🟦 Learning Takeaway
+I would focus on understanding the platform deeply, and delivery value fast. I would look at pain points slowing down delivery or effecting stability and work with team to improve automationand observability all this to impact customer experience 
+---
